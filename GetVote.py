@@ -12,19 +12,22 @@ def GetVote(urlpage, vote):
     vote : Pour / Contre / Abstention / Non-votant
     '''
     listeRetour = list()
+    typeVote = vote + " clearfix"
     #requete site et retour html
     page = urllib.request.urlopen(urlpage)
     #coller avec BS et stockage dans var
     soup = BeautifulSoup(page, 'html.parser')
     #trouver les résultats
-    table = soup.find_all('div', class_= "Pour clearfix")
+    table = soup.find_all('div', class_= typeVote)
     for groupes in table:
         groupe = groupes.find_all('li')
         for item in groupe:
             item = str(item)
-            # item = item.replace('<li>','')
-            # item = item.replace(' ', '')
-            # item = item.replace('</li>', '')
-            # item = item.replace('<b>', '')
-            # item = item.replace('</b>', '')
+            item = item.replace('<li>','')
+            item = item.replace(' ', '')
+            item = item.replace('</li>', '')
+            item = item.replace('<b>', '')
+            item = item.replace('</b>', '')
+            item = item.replace('''\xa0''', ' ')
             listeRetour.append(item)
+    return listeRetour 
