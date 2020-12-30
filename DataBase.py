@@ -25,8 +25,15 @@ for groupe in articles:
         unDepute = re.split(r"[<>]", str(unDepute))
         unDepute = re.split(r'(M\.\s|Mme\s)',unDepute[4])
         unDepute = unDepute[2].replace('\xa0', ' ')
-        deputes[unDepute] = nomGroupe[3]
+        deputes[unDepute] = [nomGroupe[3], dict()]
     #print(deputes)
+#On ajoute un dictionnaire de tous les députés pour pouvoir contabiliser les votes semblables
+listeVoteSemblables = dict()
+for depute in deputes:
+    listeVoteSemblables[depute]= [0 , 0]
+for depute in deputes:
+    deputes[deputes] = [deputes[depute], listeVoteSemblables]
+
 with open('listeDeputes', 'wb') as fichierExport :
     m_pickler = pickle.Pickler(fichierExport)
     m_pickler.dump(deputes)
