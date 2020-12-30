@@ -15,8 +15,15 @@ soup = BeautifulSoup(page, 'html.parser')
 articles = soup.find_all('article')
 articles.reverse()
 articles.pop()
-nomGroupe =  articles[6].find('a')
-nomGroupe = re.split(r'"', str(nomGroupe))
-print(nomGroupe[3])
-# for groupe in articles:
-#     nomGroupe = re.findall( , )
+for groupe in articles:
+    donneGroupe =  groupe.find('a')
+    nomGroupe = re.split(r'"', str(donneGroupe))
+    deputesGroupe = groupe.find_all('li')
+    for unDepute in deputesGroupe:
+        unDepute = re.split(r"[<>]", str(unDepute))
+        unDepute = re.split(r'(M\.\s|Mme\s)',unDepute[4])
+        #print(unDepute[2], nomGroupe[3])
+        deputes[unDepute[2]]= nomGroupe[3]
+    print(deputes)
+    # for groupe in articles:
+    #     nomGroupe = re.findall( , )
