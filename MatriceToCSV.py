@@ -2,7 +2,6 @@ import os
 import pickle
 import csv
 import pandas as pd
-import numpy as np
 
 matrice = list()
 with open('matricePour', 'rb') as fichierExport :
