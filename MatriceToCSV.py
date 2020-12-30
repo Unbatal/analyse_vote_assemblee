@@ -11,7 +11,12 @@ with open('matricePour', 'rb') as fichierExport :
 
 with open('listeDeputes', 'rb') as fichierExport :
     m_depickler = pickle.Unpickler(fichierExport)
-    listeDeputes = m_depickler.load()
+    deputes = m_depickler.load()
+
+listeDeputes = list()
+
+for depute in deputes:
+    listeDeputes.append(deputes)
 
 df = pd.DataFrame(matrice, columns = listeDeputes)
 print(df)
