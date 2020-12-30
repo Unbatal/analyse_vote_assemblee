@@ -2,6 +2,7 @@ import os
 import pickle
 import csv
 import pandas as pd
+import networkx as nx
 
 matrice = list()
 with open('matricePour', 'rb') as fichierExport :
@@ -15,7 +16,9 @@ with open('listeDeputes', 'rb') as fichierExport :
 listeDeputes = list()
 
 for depute in deputes:
-    listeDeputes.append(deputes)
+    listeDeputes.append(depute)
 
-df = pd.DataFrame(matrice, columns = listeDeputes)
-print(df)
+df = pd.DataFrame(matrice, index = listeDeputes, columns = listeDeputes)
+#print(df)
+G = nx.from_pandas_adjacency(df)
+nx.draw_networkx(G)
