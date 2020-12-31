@@ -28,7 +28,10 @@ A = df.to_numpy()
 # layout = nx.circular_layout(G)
 # #nx.draw_networkx_edge_labels(G, pos=layout)
 # plt.show()
-G = igraph.Graph.Adjacency(matrice)
-G.vs['label'] = listeDeputes
-layout = G.layout_drl()
-igraph.plot(G, layout = layout).__repr_svg__()
+# G = igraph.Graph.Adjacency(matrice)
+# G.vs['label'] = listeDeputes
+# layout = G.layout_drl()
+# igraph.plot(G, layout = layout).show()
+
+exportCSV = df.to_csv('exportCSV.csv', index=True)
+print('\nCSV String:\n', exportCSV)
