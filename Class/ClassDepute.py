@@ -10,6 +10,7 @@ class Depute:
     """
 
     def __init__(self, Nom):
+        self.nom = Nom
         self.groupe = ""
         self.votesPour = []
         self.votesContre = []

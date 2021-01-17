@@ -30,4 +30,5 @@ def GetVote(urlpage, vote):
             item = item.replace('</b>', '')
             item = item.replace('''\xa0''', ' ')
             listeRetour.append(item)
+    print(listeRetour)
     return listeRetour 

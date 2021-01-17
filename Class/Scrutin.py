@@ -21,7 +21,8 @@ class Scrutin:
             legislature (int): numéro de législature
             numero (int): numéro du scrutin dans la législature
         """
-
+        self.legislature = legislature
+        self.numero = numero
         self.intitule = ""
         urlpage = str('https://www2.assemblee-nationale.fr/scrutins/detail/(legislature)/'+str(legislature)+'/(num)/' + str(numero))
         self.listePour = GetVote(urlpage, 'Pour')
@@ -29,6 +30,7 @@ class Scrutin:
         self.listeAbstention = GetVote(urlpage, 'Abstention')
         self.listeNonvotant = GetVote(urlpage, 'Non-votant')
         self.parti = ""
+        # print(self.listeContre)
 
 def GetVote(urlpage, vote):
     '''renvoie la liste des députés ayant voté $vote
