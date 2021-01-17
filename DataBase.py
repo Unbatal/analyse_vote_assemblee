@@ -29,7 +29,7 @@ for groupe in articles:
         unDepute = re.split(r'(M\.\s|Mme\s)',unDepute[4])
         unDepute = unDepute[2].replace('\xa0', ' ')
         deputes[unDepute] = nomGroupe[3]
-# print(deputes)
+print(deputes)
 dictDeputes = {}
 for clef in deputes:
     depute = Depute(clef)
