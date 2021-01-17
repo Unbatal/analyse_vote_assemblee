@@ -4,6 +4,7 @@ import urllib.request
 import os
 import pickle
 import re
+from Class import ClassDepute
 
 '''constitution de la liste des députés : "Prenom + Nom" : "prenom", "nom" , Groupe'''
 deputes = {}
@@ -26,8 +27,13 @@ for groupe in articles:
         unDepute = re.split(r'(M\.\s|Mme\s)',unDepute[4])
         unDepute = unDepute[2].replace('\xa0', ' ')
         deputes[unDepute] = nomGroupe[3]
-    #print(deputes)
-
-with open('listeDeputes', 'wb') as fichierExport :
-    m_pickler = pickle.Pickler(fichierExport)
-    m_pickler.dump(deputes)
+# print(deputes)
+dictDeputes = {}
+for clef in deputes:
+    depute = ClassDepute(clef)
+    dictDeputes[clef] = depute
+    dictDeputes[clef].groupe  = deputes[clef]
+print(dictDeputes)
+# with open('listeDeputes', 'wb') as fichierExport :
+#     m_pickler = pickle.Pickler(fichierExport)
+#     m_pickler.dump(deputes)
