@@ -1,4 +1,4 @@
-from Scrutin import Scrutin
+# from Scrutin import Scrutin
 
 class Depute:
     """Classe représentant un deputé :
@@ -15,19 +15,19 @@ class Depute:
         self.votesContre = []
         self.abstentions = []
     
-    def updateVote(self, unScrutin):
-        if ((unScrutin.legislature, unScrutin.numero) in self.votesPour):
-            pass
-        elif ((unScrutin.legislature, unScrutin.numero) in self.votesContre):
-            pass
-        elif ((unScrutin.legislature, unScrutin.numero) in self.abstentions):
-            pass
-        else :
-            if self.Nom in unScrutin.listePour:
-                self.votesPour.append(unScrutin.legislature, unScrutin.numero)
-            elif self.Nom in unScrutin.listeContre:
-                self.votesContre.append(unScrutin.legislature, unScrutin.numero)
-            elif self.Nom in unScrutin.listeAbstention:
-                self.abstentions.append(unScrutin.legislature, unScrutin.numero)
-            else:
-                pass
+    # def updateVote(self, unScrutin):
+    #     if ((unScrutin.legislature, unScrutin.numero) in self.votesPour):
+    #         pass
+    #     elif ((unScrutin.legislature, unScrutin.numero) in self.votesContre):
+    #         pass
+    #     elif ((unScrutin.legislature, unScrutin.numero) in self.abstentions):
+    #         pass
+    #     else :
+    #         if self.Nom in unScrutin.listePour:
+    #             self.votesPour.append(unScrutin.legislature, unScrutin.numero)
+    #         elif self.Nom in unScrutin.listeContre:
+    #             self.votesContre.append(unScrutin.legislature, unScrutin.numero)
+    #         elif self.Nom in unScrutin.listeAbstention:
+    #             self.abstentions.append(unScrutin.legislature, unScrutin.numero)
+    #         else:
+    #             pass

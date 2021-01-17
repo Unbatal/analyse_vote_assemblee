@@ -1,10 +1,12 @@
 # libraries
+from ssl import ALERT_DESCRIPTION_UNEXPECTED_MESSAGE
 from bs4 import BeautifulSoup
 import urllib.request
 import os
 import pickle
 import re
-from Class import ClassDepute
+from Class.ClassDepute import Depute
+from Class.Scrutin import Scrutin
 
 '''constitution de la liste des députés : "Prenom + Nom" : "prenom", "nom" , Groupe'''
 deputes = {}
@@ -30,10 +32,9 @@ for groupe in articles:
 # print(deputes)
 dictDeputes = {}
 for clef in deputes:
-    depute = ClassDepute(clef)
+    depute = Depute(clef)
     dictDeputes[clef] = depute
     dictDeputes[clef].groupe  = deputes[clef]
-print(dictDeputes)
 # with open('listeDeputes', 'wb') as fichierExport :
 #     m_pickler = pickle.Pickler(fichierExport)
 #     m_pickler.dump(deputes)
