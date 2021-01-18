@@ -1,0 +1,3 @@
+#excluded directories
+__pycache__/
+.vscode/
