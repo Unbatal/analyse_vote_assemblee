@@ -66,6 +66,6 @@ for vote in listScrutin:
         except KeyError:
                 pass   
 
-with open('dictDeputes', 'wb') as fichierExport :
+with open('Data/dictDeputes', 'wb') as fichierExport :
     m_pickler = pickle.Pickler(fichierExport)
     m_pickler.dump(dictDeputes)
